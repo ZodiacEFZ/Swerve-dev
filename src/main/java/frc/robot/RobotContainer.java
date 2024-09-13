@@ -9,8 +9,8 @@ import frc.libzodiac.Zambda;
 import frc.libzodiac.Zamera;
 import frc.libzodiac.ui.Axis;
 import frc.libzodiac.ui.Xbox;
-import frc.robot.Commands.Auto;
-import frc.robot.Subsystems.Chassis;
+import frc.robot.commands.Auto;
+import frc.robot.subsystems.Chassis;
 
 public class RobotContainer {
     public final Chassis chassis = new Chassis();

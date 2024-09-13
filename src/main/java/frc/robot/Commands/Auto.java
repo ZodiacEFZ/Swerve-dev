@@ -1,10 +1,10 @@
-package frc.robot.Commands;
+package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.Timer;
 import frc.libzodiac.ZCommand;
 import frc.libzodiac.util.Vec2D;
 import frc.robot.RobotContainer;
-import frc.robot.Subsystems.Chassis;
+import frc.robot.subsystems.Chassis;
 
 import java.util.LinkedList;
 import java.util.Queue;
