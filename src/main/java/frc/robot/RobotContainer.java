@@ -17,7 +17,7 @@ public class RobotContainer {
     public final Zamera camera = new Zamera();
     public final Xbox driver = new Xbox(0);
     public final Xbox controller = new Xbox(1);
-    public final Auto auto = new Auto(this); // todo: change command
+    public final Auto auto = new Auto(this, Auto.Default); // todo: change command
 
 
     /**

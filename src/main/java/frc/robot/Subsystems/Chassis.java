@@ -9,10 +9,10 @@ import frc.libzodiac.util.Vec2D;
 
 public class Chassis extends Zwerve {
     // TODO: Swerve zero position
-    private static final TalonFXSwerve front_left = new TalonFXSwerve(5, 1, 9, 3581);
-    private static final TalonFXSwerve front_right = new TalonFXSwerve(8, 4, 12, 1921);
-    private static final TalonFXSwerve rear_left = new TalonFXSwerve(6, 2, 10, 408);
-    private static final TalonFXSwerve rear_right = new TalonFXSwerve(7, 3, 11, 149);
+    private static final TalonFXSwerve front_left = new TalonFXSwerve(5, 1, 9, 3581).invert(false, true);
+    private static final TalonFXSwerve front_right = new TalonFXSwerve(8, 4, 12, 1921).invert(false, false);
+    private static final TalonFXSwerve rear_left = new TalonFXSwerve(6, 2, 10, 408).invert(true, true);
+    private static final TalonFXSwerve rear_right = new TalonFXSwerve(7, 3, 11, 149).invert(true, true);
 
     private static final Pigeon gyro = new Pigeon(0);
 

@@ -10,7 +10,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class Auto extends ZCommand {
-    public static final AutoCommand Fallback = new AutoCommand() {
+    public static final AutoCommand Default = new AutoCommand() {
         @Override
         public AutoCommand init() {
             commands.clear();
@@ -45,8 +45,9 @@ public class Auto extends ZCommand {
     private static AutoCommand command;
     private static Chassis chassis;
 
-    public Auto(RobotContainer robot) {
+    public Auto(RobotContainer robot, AutoCommand cmd) {
         chassis = require(robot.chassis);
+        command = cmd;
     }
 
     private static boolean go_pos(Vec2D pos, double yaw) {
