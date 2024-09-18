@@ -18,7 +18,6 @@ public class Robot extends TimedRobot {
 
     @Override
     public void robotPeriodic() {
-        Chassis.inav.run.schedule();
         CommandScheduler.getInstance().run();
     }
 

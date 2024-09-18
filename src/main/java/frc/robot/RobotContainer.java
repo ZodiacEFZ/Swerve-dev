@@ -23,7 +23,7 @@ public class RobotContainer {
     /**
      * The command to drive the robot.
      */
-    public final Command drive = this.chassis.drive(driver.ly().inverted().threshold(0.02).map(Axis.ATAN_FILTER), driver.lx().inverted().threshold(0.02).map(Axis.ATAN_FILTER), driver.rx().inverted().threshold(0.02), driver.lb(), driver.rb());
+    public final Command drive = this.chassis.drive(driver.ly().inverted().threshold(0.02).map(Axis.ATAN_FILTER), driver.lx().inverted().threshold(0.02).map(Axis.ATAN_FILTER), driver.rx().inverted().threshold(0.02), driver.ry().inverted().threshold(0.02), driver.rt().as_button(0.2), driver.lt().as_button(0.2), driver.lb());
 
     public RobotContainer() {
         this.configureBindings();
