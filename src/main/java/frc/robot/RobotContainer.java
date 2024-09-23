@@ -31,9 +31,14 @@ public class RobotContainer {
     }
 
     private void configureBindings() {
-        this.driver.a().on_press(new Zambda(this.chassis, this.chassis::toggle_headless));
-        this.driver.b().on_press(new Zambda(this.chassis, this.chassis::reset_headless));
-        this.driver.x().on_press(new Zambda(this.chassis, this.chassis::mod_reset));
+        this.driver.a().on_press(new Zambda(this.chassis, () -> {
+            this.chassis.toggle_headless();
+            this.driver.rumble(0.3);
+        }));
+        this.driver.b().on_press(new Zambda(this.chassis, () -> {
+            this.chassis.reset_headless();
+            this.driver.rumble(0.3);
+        }));
     }
 
     private RobotContainer init() {

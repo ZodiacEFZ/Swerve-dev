@@ -2,6 +2,7 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.Timer;
 import frc.libzodiac.ZCommand;
+import frc.libzodiac.ZPath;
 import frc.libzodiac.util.Vec2D;
 import frc.robot.RobotContainer;
 import frc.robot.subsystems.Chassis;
@@ -44,26 +45,11 @@ public class Auto extends ZCommand {
     private static final Timer timer = new Timer();
     private static AutoCommand command;
     private static Chassis chassis;
+    ZPath path = new ZPath("");
 
     public Auto(RobotContainer robot, AutoCommand cmd) {
         chassis = require(robot.chassis);
         command = cmd;
-    }
-
-    private static boolean go_pos(Vec2D pos, double yaw) {
-        final var deltaPos = pos.sub(Chassis.inav.getPosition());
-        final var deltaYaw = yaw - Chassis.inav.getYaw();
-        chassis.go(deltaPos.mul(CHASSIS_POSITION_KP), yaw);
-        return deltaPos.r() < CHASSIS_POSITION_THRESHOLD && Math.abs(deltaYaw) < CHASSIS_ROTATION_THRESHOLD;
-    }
-
-    private static boolean go(Vec2D vel, double yaw, double time) {
-        if (timer.get() < time) {
-            chassis.go_yaw(vel, yaw);
-            return false;
-        }
-        chassis.go(new Vec2D(0, 0), 0);
-        return true;
     }
 
     public Auto init() {
