@@ -19,13 +19,12 @@ public class RobotContainer {
     public final Xbox controller = new Xbox(1);
     public final Auto auto = new Auto(this, Auto.Default); // todo: change command
 
-
     /**
      * The command to drive the robot.
      */
     public final Command drive = this.chassis.drive(
-            driver.l().inverted().threshold(0.02).map(Axis.ATAN_FILTER),
-            driver.r().inverted().threshold(0.02).map(Axis.ATAN_FILTER),
+            driver.l().switched().inverted().threshold(0.02).map(Axis.ATAN_FILTER),
+            driver.r().switched().inverted().threshold(0.02).map(Axis.ATAN_FILTER),
             driver.lx().inverted().threshold(0.02).map(Axis.ATAN_FILTER),
             driver.ly().inverted().threshold(0.02).map(Axis.ATAN_FILTER),
             driver.rx().inverted().threshold(0.02).map(Axis.ATAN_FILTER),

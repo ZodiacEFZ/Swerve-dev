@@ -45,7 +45,7 @@ public class Auto extends ZCommand {
     private static final Timer timer = new Timer();
     private static AutoCommand command;
     private static Chassis chassis;
-    ZPath path = new ZPath(""); //todo
+    //ZPath path = new ZPath(""); //todo
 
     public Auto(RobotContainer robot, AutoCommand cmd) {
         chassis = require(robot.chassis);
