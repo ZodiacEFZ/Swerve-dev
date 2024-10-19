@@ -1,9 +1,12 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.math.controller.PIDController;
+import edu.wpi.first.math.geometry.Pose2d;
+import edu.wpi.first.math.geometry.Rotation2d;
 import frc.libzodiac.Zwerve;
 import frc.libzodiac.hardware.Pigeon;
 import frc.libzodiac.hardware.group.TalonFXSwerve;
+import frc.libzodiac.util.Vec2D;
 
 public class Chassis extends Zwerve {
     // TODO: Swerve zero position
@@ -14,11 +17,14 @@ public class Chassis extends Zwerve {
 
     private static final Pigeon gyro = new Pigeon(0);
 
+    private static final Pose2d initialPose = new Pose2d(0, 0, Rotation2d.fromRadians(0)); // TODO: Initial pose
+    private static final Vec2D size = new Vec2D(114, 114); // TODO: Robot size
+
     /**
      * Creates a new Chassis.
      */
     public Chassis() {
-        super(front_left, front_right, rear_left, rear_right, gyro, 114, 114); // TODO: Robot size
+        super(front_left, front_right, rear_left, rear_right, gyro, size, initialPose);
 
         final var v = new PIDController(0.2, 5, 0);
         final var a = new PIDController(0.3, 0, 0);

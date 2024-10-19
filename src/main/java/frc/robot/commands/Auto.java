@@ -2,8 +2,6 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.Timer;
 import frc.libzodiac.ZCommand;
-import frc.libzodiac.ZPath;
-import frc.libzodiac.util.Vec2D;
 import frc.robot.RobotContainer;
 import frc.robot.subsystems.Chassis;
 

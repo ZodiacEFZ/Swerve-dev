@@ -166,6 +166,7 @@ bin/
 .idea/
 .run/
 out/
+qodana.yaml
 
 # Fleet
 .fleet

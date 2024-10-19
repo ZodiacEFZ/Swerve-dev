@@ -22,16 +22,7 @@ public class RobotContainer {
     /**
      * The command to drive the robot.
      */
-    public final Command drive = this.chassis.drive(
-            driver.l().switched().inverted().threshold(0.02).map(Axis.ATAN_FILTER),
-            driver.r().switched().inverted().threshold(0.02).map(Axis.ATAN_FILTER),
-            driver.lx().inverted().threshold(0.02).map(Axis.ATAN_FILTER),
-            driver.ly().inverted().threshold(0.02).map(Axis.ATAN_FILTER),
-            driver.rx().inverted().threshold(0.02).map(Axis.ATAN_FILTER),
-            driver.ry().inverted().threshold(0.02).map(Axis.ATAN_FILTER),
-            driver.rt().as_button(0.2),
-            driver.lt().as_button(0.2),
-            driver.lb());
+    public final Command drive = this.chassis.drive(driver.l().switched().inverted().threshold(0.05).map(Axis.ATAN_FILTER), driver.r().switched().inverted().threshold(0.05).map(Axis.ATAN_FILTER), driver.lx().inverted().threshold(0.05).map(Axis.ATAN_FILTER), driver.ly().inverted().threshold(0.05).map(Axis.ATAN_FILTER), driver.rx().inverted().threshold(0.05).map(Axis.ATAN_FILTER), driver.ry().inverted().threshold(0.05).map(Axis.ATAN_FILTER), driver.rt().as_button(0.2), driver.lt().as_button(0.2), driver.lb());
 
     public RobotContainer() {
         this.configureBindings();
@@ -40,8 +31,8 @@ public class RobotContainer {
 
     private void configureBindings() {
         this.driver.a().on_press(new Zambda(this.chassis, () -> {
-            this.chassis.toggle_headless();
-            this.driver.rumble(0.3);
+            final var headless = this.chassis.toggle_headless();
+            this.driver.rumble(0.3, headless ? 1 : 0.4);
         }));
         this.driver.b().on_press(new Zambda(this.chassis, () -> {
             this.chassis.reset_headless();
