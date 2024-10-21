@@ -1,10 +1,10 @@
 package frc.robot.subsystems;
 
-import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
 import frc.libzodiac.Zwerve;
 import frc.libzodiac.hardware.Pigeon;
+import frc.libzodiac.hardware.TalonFXMotor;
 import frc.libzodiac.hardware.group.TalonFXSwerve;
 import frc.libzodiac.util.Vec2D;
 
@@ -26,8 +26,10 @@ public class Chassis extends Zwerve {
     public Chassis() {
         super(front_left, front_right, rear_left, rear_right, gyro, size, initialPose);
 
-        final var v = new PIDController(0.2, 5, 0);
-        final var a = new PIDController(0.3, 0, 0);
+//        final var v = new PIDController(0.2, 5, 0);
+//        final var a = new PIDController(0.3, 0, 0);
+        final var v = TalonFXMotor.PIDConfig(0.2, 5, 0, 0);
+        final var a = TalonFXMotor.PIDConfig(0.3, 0, 0, 0);
 
         front_left.set_pid(v, a);
         front_right.set_pid(v, a);
