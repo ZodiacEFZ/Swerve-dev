@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.libzodiac.ZDashboard;
 
-public class Robot extends TimedRobot implements ZDashboard.Dashboard {
+public class Robot extends TimedRobot {
     private RobotContainer robotContainer;
 
     protected Robot() {
@@ -41,7 +41,7 @@ public class Robot extends TimedRobot implements ZDashboard.Dashboard {
     @Override
     public void autonomousInit() {
         robotContainer.auto.init();
-        dashboard().selectedTab("Auto");
+        ZDashboard.selectTab("Auto");
     }
 
     @Override
@@ -56,7 +56,7 @@ public class Robot extends TimedRobot implements ZDashboard.Dashboard {
 
     @Override
     public void teleopInit() {
-        dashboard().selectedTab("Teleoperated");
+        ZDashboard.selectTab("Teleoperated");
     }
 
     @Override
