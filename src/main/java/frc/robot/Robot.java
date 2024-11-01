@@ -12,7 +12,7 @@ public class Robot extends TimedRobot implements ZDashboard.Dashboard {
     private RobotContainer robotContainer;
 
     protected Robot() {
-        addPeriodic(robotContainer.chassis::update, 0.05, 0.02);
+        addPeriodic(() -> robotContainer.chassis.update(), 0.05, 0.02);
     }
 
     @Override
@@ -56,7 +56,7 @@ public class Robot extends TimedRobot implements ZDashboard.Dashboard {
 
     @Override
     public void teleopInit() {
-        dashboard().selectedTab("Teleop");
+        dashboard().selectedTab("Teleoperated");
     }
 
     @Override
