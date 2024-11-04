@@ -5,6 +5,7 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj2.command.Command;
+import frc.libzodiac.ZDashboard;
 import frc.libzodiac.Zambda;
 import frc.libzodiac.Zamera;
 import frc.libzodiac.ui.Axis;
