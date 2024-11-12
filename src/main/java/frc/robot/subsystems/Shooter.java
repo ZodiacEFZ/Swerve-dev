@@ -26,7 +26,7 @@ public final class Shooter extends SubsystemBase {
     }
 
     public Shooter shoot(double speed) {
-        this.ld.velocity(-speed); //todo
+        this.ld.velocity(-speed); // TODO: check
         //        this.lu.velocity(speed);
         //        this.rd.velocity(speed);
         //        this.ru.velocity(-speed);

@@ -34,7 +34,7 @@ public class Auto extends ZCommand {
     private static final double CHASSIS_ROTATION_THRESHOLD = 0.05;
     private static final Timer timer = new Timer();
     private static AutoCommand command;
-//    private static ZPath path = new ZPath(""); //todo
+    //    private static ZPath path = new ZPath(""); // TODO: add path
     private static Chassis chassis;
     private static Intake intake;
     private static Shooter shooter;
