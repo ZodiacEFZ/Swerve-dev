@@ -26,8 +26,6 @@ public class Chassis extends Zwerve {
     public Chassis() {
         super(front_left, front_right, rear_left, rear_right, gyro, size, initialPose);
 
-//        final var v = new PIDController(0.2, 5, 0);
-//        final var a = new PIDController(0.3, 0, 0);
         final var v = TalonFXMotor.PIDConfig(0.2, 5, 0, 0);
         final var a = TalonFXMotor.PIDConfig(0.3, 0, 0, 0);
 

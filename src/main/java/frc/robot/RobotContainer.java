@@ -5,7 +5,6 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.libzodiac.ZDashboard;
 import frc.libzodiac.Zambda;
 import frc.libzodiac.Zamera;
 import frc.libzodiac.ui.Axis;
@@ -23,7 +22,16 @@ public class RobotContainer {
     /**
      * The command to drive the robot.
      */
-    public final Command drive = this.chassis.drive(driver.l().switched().inverted().threshold(0.05).map(Axis.ATAN_FILTER), driver.r().switched().inverted().threshold(0.05).map(Axis.ATAN_FILTER), driver.lx().inverted().threshold(0.05).map(Axis.ATAN_FILTER), driver.ly().inverted().threshold(0.05).map(Axis.ATAN_FILTER), driver.rx().inverted().threshold(0.05).map(Axis.ATAN_FILTER), driver.ry().inverted().threshold(0.05).map(Axis.ATAN_FILTER), driver.rt().as_button(0.2), driver.lt().as_button(0.2), driver.lb());
+    public final Command drive = this.chassis.drive(
+            driver.l().switched().inverted().threshold(0.05).map(Axis.ATAN_FILTER),
+            driver.r().switched().inverted().threshold(0.05).map(Axis.ATAN_FILTER),
+            driver.lx().inverted().threshold(0.05).map(Axis.ATAN_FILTER),
+            driver.ly().inverted().threshold(0.05).map(Axis.ATAN_FILTER),
+            driver.rx().inverted().threshold(0.05).map(Axis.ATAN_FILTER),
+            driver.ry().inverted().threshold(0.05).map(Axis.ATAN_FILTER),
+            driver.rt().as_button(0.2),
+            driver.lt().as_button(0.2),
+            driver.lb());
 
     public RobotContainer() {
         this.configureBindings();

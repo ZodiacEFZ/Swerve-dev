@@ -21,21 +21,8 @@ public class Robot extends TimedRobot {
     }
 
     @Override
-    public void robotPeriodic() {
-        CommandScheduler.getInstance().run();
-    }
-
-    @Override
     public void disabledInit() {
         CommandScheduler.getInstance().cancelAll();
-    }
-
-    @Override
-    public void disabledPeriodic() {
-    }
-
-    @Override
-    public void disabledExit() {
     }
 
     @Override
@@ -45,18 +32,28 @@ public class Robot extends TimedRobot {
     }
 
     @Override
-    public void autonomousPeriodic() {
-        robotContainer.auto.schedule();
+    public void teleopInit() {
+        ZDashboard.selectTab("Teleoperated");
+    }
+
+    @Override
+    public void testInit() {
+        CommandScheduler.getInstance().cancelAll();
+    }
+
+    @Override
+    public void robotPeriodic() {
         CommandScheduler.getInstance().run();
     }
 
     @Override
-    public void autonomousExit() {
+    public void disabledPeriodic() {
     }
 
     @Override
-    public void teleopInit() {
-        ZDashboard.selectTab("Teleoperated");
+    public void autonomousPeriodic() {
+        robotContainer.auto.schedule();
+        CommandScheduler.getInstance().run();
     }
 
     @Override
@@ -66,17 +63,20 @@ public class Robot extends TimedRobot {
     }
 
     @Override
-    public void teleopExit() {
-    }
-
-    @Override
-    public void testInit() {
-        CommandScheduler.getInstance().cancelAll();
-    }
-
-    @Override
     public void testPeriodic() {
         CommandScheduler.getInstance().run();
+    }
+
+    @Override
+    public void disabledExit() {
+    }
+
+    @Override
+    public void autonomousExit() {
+    }
+
+    @Override
+    public void teleopExit() {
     }
 
     @Override
