@@ -11,9 +11,13 @@ import frc.libzodiac.ui.Axis;
 import frc.libzodiac.ui.Xbox;
 import frc.robot.commands.Auto;
 import frc.robot.subsystems.Chassis;
+import frc.robot.subsystems.Intake;
+import frc.robot.subsystems.Shooter;
 
 public class RobotContainer {
     public final Chassis chassis = new Chassis();
+    public final Intake intake = new Intake();
+    public final Shooter shooter = new Shooter();
     public final Zamera camera = new Zamera();
     public final Xbox driver = new Xbox(0);
     public final Xbox controller = new Xbox(1);
@@ -33,6 +37,8 @@ public class RobotContainer {
             driver.lt().as_button(0.2),
             driver.lb());
 
+    public final Command shoot = this.shooter.ctrl(controller.ry());
+
     public RobotContainer() {
         this.configureBindings();
         this.init();
@@ -47,6 +53,16 @@ public class RobotContainer {
             this.chassis.reset_headless();
             this.driver.rumble(0.3);
         }));
+
+        this.controller.a().on_down(new Zambda(this.intake, this.intake::amp))
+                .on_release(new Zambda(this.intake, this.intake::standby));
+        this.controller.b().on_down(new Zambda(this.intake, this.intake::up));
+        this.controller.lb().on_press(new Zambda(this.intake, this.intake.lift::reset));
+        this.controller.lt().as_button().on_down(new Zambda(this.intake, this.intake::take))
+                .on_release(new Zambda(this.intake, this.intake::standby));
+        this.controller.rt().as_button()
+                .on_down(new Zambda(this.intake, this.intake::send))
+                .on_release(new Zambda(this.intake, this.intake::standby));
     }
 
     private RobotContainer init() {
