@@ -28,7 +28,7 @@ public class RobotContainer {
      */
     public final Command drive = this.chassis.drive(
             driver.l().switched().inverted().threshold(0.05).map(Axis.ATAN_FILTER),
-            driver.r().switched().inverted().threshold(0.05).map(Axis.ATAN_FILTER),
+            driver.r().switched().threshold(0.05).map(Axis.ATAN_FILTER),
             driver.lx().inverted().threshold(0.05).map(Axis.ATAN_FILTER),
             driver.ly().inverted().threshold(0.05).map(Axis.ATAN_FILTER),
             driver.rx().inverted().threshold(0.05).map(Axis.ATAN_FILTER),
